@@ -1,4 +1,4 @@
-# Lesson 1.1.1 Arrays
+# Assignment 1.1.1 Arrays
 - [Lesson 1.1.1 Arrays](#lesson-111-arrays)
   - [Before you start](#before-you-start)
 - [Question 1: addToFrontOrBack() - SIDE EFFECTS](#question-1-addtofrontorback---side-effects)
