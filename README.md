@@ -1,5 +1,5 @@
 # Assignment 1.1.1 Arrays
-- [Lesson 1.1.1 Arrays](#lesson-111-arrays)
+- [Assignment 1.1.1 Arrays](#assignment-111-arrays)
   - [Before you start](#before-you-start)
 - [Question 1: addToFrontOrBack() - SIDE EFFECTS](#question-1-addtofrontorback---side-effects)
 - [Question 2: reverseString() - PURE](#question-2-reversestring---pure)
