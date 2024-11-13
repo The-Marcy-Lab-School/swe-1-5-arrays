@@ -29,14 +29,14 @@ A side effect is something like altering global state or mutating an argument. N
 Write a function `addToFrontOrBack()` that takes 3 args: an array `arr`, a value of any type `value`, and a boolean `isFront`. Insert the `value` as either the first or last value in the `arr`, depending on the boolean `isFront`. The function should mutate the array and return nothing.
 
 ## Question 2: reverseString() - PURE
-Write a function `reverseString()` that takes a `string` argument. The function should return a reversed version of the `string`. Will this function modify the original string in anyway? Food for thought.
+Write a function `reverseString()` that takes a `string` argument. The function should return a reversed version of the `string`. Will this function modify the original string in any way? Food for thought.
 
-Before you go crazy with loops or anything, you *might* want to check out:
- - [`Array.join()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join)
+Before you go crazy with loops or anything, check out these three methods which can be combined to reverse a string:
  - [`String.split()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split)
  - [`Array.reverse()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse)
+ - [`Array.join()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join)
 
-Now, if you want to *manually* do this with loops, go crazy! It's fun, but know there's like, an *official* way to do this.
+Now, if you want to *manually* do this with loops, go crazy! It's fun, but know there's a common way to do this.
 
 ## Question 3: newArrayFullOf() - PURE
 Write a function `newArrayFullOf()` that takes 2 args: a value of any type `value` and a number `numOfValue`. Your function should return a new array full of the value. Like this:
