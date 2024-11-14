@@ -92,8 +92,8 @@ Remember, we will never pass in an array as an argument, only individual word ar
 ## Question 10: MODIFY - destructureCoordinates
 We have a function in `modify.js` that takes a single coordinate array (`[x,y]`) and then returns a template string with them in it. It's not using modern `destructuring` syntax though and that's lame. Modify this function to use destructuring **but keep the variable names x and y**. Our tests are *explicitly* looking for those, and I want you to get the points.
 
-## Question 11: DEBUG - clearAll
-In `debug.js` we have a broken function `clearAll()`. It's supposed to mutate a given array by deleting all the the values inside of it. But it's not working. Can you fix it and pass the tests?
+## Question 11: DEBUG - clearArr
+In `debug.js` we have a broken function `clearArr()`. It's supposed to mutate a given array by deleting all the the values inside of it. But it's not working. Can you fix it and pass the tests?
 
 ## Question 12: DEBUG - getFirstItem
 In `debug.js` we have another broken function `getFirstItem()` that is *not* supposed to mutate the given array. We just want the first item of the array. Can you fix it?
