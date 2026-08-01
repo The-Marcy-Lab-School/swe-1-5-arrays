@@ -1,5 +1,3 @@
-const path = require('path');
-const ScoreCounter = require('score-tests');
 const {
   addToFrontOrBack,
   reverseString,
@@ -12,8 +10,6 @@ const {
 } = require('../src/from-scratch');
 
 const testSuiteName = 'From Scratch Tests';
-const scoresDir = path.join(__dirname, '..', 'scores');
-const scoreCounter = new ScoreCounter(testSuiteName, scoresDir);
 
 describe(testSuiteName, () => {
   it('addToFrontOrBack - MUTATION - adds value to the front or back', () => {
@@ -28,8 +24,6 @@ describe(testSuiteName, () => {
     const arr3 = [];
     addToFrontOrBack(arr3, 1, false);
     expect(arr3).toEqual([1]);
-
-    scoreCounter.correct(expect); // DO NOT TOUCH
   });
 
   it('reverseString - PURE - returns a reversed string', () => {
@@ -37,8 +31,6 @@ describe(testSuiteName, () => {
     expect(reverseString('hello world')).toEqual('dlrow olleh');
     expect(reverseString('')).toEqual('');
     expect(reverseString('a')).toEqual('a');
-
-    scoreCounter.correct(expect); // DO NOT TOUCH
   });
 
   it('newArrayFullOf - PURE - returns an array full of the given value', () => {
@@ -46,8 +38,6 @@ describe(testSuiteName, () => {
     expect(newArrayFullOf('a', 2)).toEqual(['a', 'a']);
     expect(newArrayFullOf(undefined, 3)).toEqual([undefined, undefined, undefined]);
     expect(newArrayFullOf(0, 0)).toEqual([]);
-
-    scoreCounter.correct(expect); // DO NOT TOUCH
   });
 
   it('insertIntoMiddle - MUTATION - inserts value into the middle of an array', () => {
@@ -66,8 +56,6 @@ describe(testSuiteName, () => {
     const arr4 = [];
     insertIntoMiddle(arr4, 1);
     expect(arr4).toEqual([1]);
-
-    scoreCounter.correct(expect); // DO NOT TOUCH
   });
 
   it('deleteFromMiddle - MUTATION - deletes value from the middle of an array', () => {
@@ -86,8 +74,6 @@ describe(testSuiteName, () => {
     const arr4 = [];
     deleteFromMiddle(arr4);
     expect(arr4).toEqual([]);
-
-    scoreCounter.correct(expect); // DO NOT TOUCH
   });
 
   it('isRightIndex - PURE - returns true if the index is the right index', () => {
@@ -99,8 +85,6 @@ describe(testSuiteName, () => {
     expect(isRightIndex(arr, 'A', 1)).toBeFalsy();
 
     expect(arr).toEqual(['a', 'b', 'c', 'd', 'e']);
-
-    scoreCounter.correct(expect); // DO NOT TOUCH
   });
 
   it('roundAllNumsDown - PURE - rounds all numbers down', () => {
@@ -119,8 +103,6 @@ describe(testSuiteName, () => {
     const arr4 = [4, 5, 7];
     expect(roundAllNumsDown(arr4)).toEqual([4, 5, 7]);
     expect(arr4).toEqual([4, 5, 7]);
-
-    scoreCounter.correct(expect); // DO NOT TOUCH
   });
 
   it('getAllYCoordinates - PURE - returns an array of all y coordinates', () => {
@@ -136,11 +118,5 @@ describe(testSuiteName, () => {
     const arr3 = [[12.3, 81.3], [1.2, 3.4], [5.6, 7.8]];
     expect(getAllYCoordinates(arr3)).toEqual([81.3, 3.4, 7.8]);
     expect(arr3).toEqual([[12.3, 81.3], [1.2, 3.4], [5.6, 7.8]]);
-
-    scoreCounter.correct(expect); // DO NOT TOUCH
   });
-
-  // IGNORE PLEASE
-  beforeEach(() => scoreCounter.add(expect));
-  afterAll(scoreCounter.export);
 });

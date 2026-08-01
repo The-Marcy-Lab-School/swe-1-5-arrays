@@ -1,10 +1,6 @@
-const path = require('path');
-const ScoreCounter = require('score-tests'); // eslint-disable-line import/no-extraneous-dependencies
 const { clearArr, getFirstItem } = require('../src/debug');
 
 const testSuiteName = 'Debug Tests';
-const scoresDir = path.join(__dirname, '..', 'scores');
-const scoreCounter = new ScoreCounter(testSuiteName, scoresDir);
 
 describe(testSuiteName, () => {
   it('clearAll - removes all elements from an array as a mutation', () => {
@@ -19,8 +15,6 @@ describe(testSuiteName, () => {
     const arr3 = [];
     clearArr(arr3);
     expect(arr3).toEqual([]);
-
-    scoreCounter.correct(expect); // DO NOT TOUCH
   });
 
   it('getFirstItem - returns the first item in an array WITHOUT mutating original', () => {
@@ -35,10 +29,5 @@ describe(testSuiteName, () => {
     const arr3 = [];
     expect(getFirstItem(arr3)).toEqual(undefined);
     expect(arr3).toEqual([]);
-
-    scoreCounter.correct(expect); // DO NOT TOUCH
   });
-  // IGNORE PLEASE
-  beforeEach(() => scoreCounter.add(expect));
-  afterAll(scoreCounter.export);
 });

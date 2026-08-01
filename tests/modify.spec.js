@@ -1,10 +1,6 @@
-const path = require('path');
-const ScoreCounter = require('score-tests');
 const { uppercaseAll, destructureCoordinates } = require('../src/modify');
 
 const testSuiteName = 'Modify Tests';
-const scoresDir = path.join(__dirname, '..', 'scores');
-const scoreCounter = new ScoreCounter(testSuiteName, scoresDir);
 
 describe(testSuiteName, () => {
   it('uppercaseAll - No matter how many words passed in, they are uppercased', () => {
@@ -25,8 +21,6 @@ describe(testSuiteName, () => {
 
     const result5 = uppercaseAll();
     expect(result5).toEqual([]);
-
-    scoreCounter.correct(expect); // DO NOT TOUCH
   });
 
   it('destructureCoordinates - Destructures the coordinates array into x and y variables', () => {
@@ -41,11 +35,5 @@ describe(testSuiteName, () => {
 
     const result2 = destructureCoordinates([3, 4]);
     expect(result2).toEqual('X is: 3, Y is: 4');
-
-    scoreCounter.correct(expect); // DO NOT TOUCH
   });
-
-  // IGNORE PLEASE
-  beforeEach(() => scoreCounter.add(expect));
-  afterAll(scoreCounter.export);
 });
