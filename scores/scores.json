@@ -1,0 +1,56 @@
+{
+  "testScores": {
+    "Debug Tests": {
+      "DeTe1": 0,
+      "DeTe2": 0
+    },
+    "From Scratch Tests": {
+      "FrScTe1": 0,
+      "FrScTe2": 0,
+      "FrScTe3": 0,
+      "FrScTe4": 0,
+      "FrScTe5": 0,
+      "FrScTe6": 0,
+      "FrScTe7": 0,
+      "FrScTe8": 0
+    },
+    "Modify Tests": {
+      "MoTe1": 0,
+      "MoTe2": 0
+    }
+  },
+  "idToTestNameHash": {
+    "DeTe1": "Debug Tests clear_list - removes all elements from a list as a mutation",
+    "DeTe2": "Debug Tests get_first_item - returns the first item in a list WITHOUT mutating original",
+    "FrScTe1": "From Scratch Tests add_to_front_or_back - MUTATION - adds value to the front or back",
+    "FrScTe2": "From Scratch Tests reverse_string - PURE - returns a reversed string",
+    "FrScTe3": "From Scratch Tests new_list_full_of - PURE - returns a list full of the given value",
+    "FrScTe4": "From Scratch Tests insert_into_middle - MUTATION - inserts value into the middle of a list",
+    "FrScTe5": "From Scratch Tests delete_from_middle - MUTATION - deletes value from the middle of a list",
+    "FrScTe6": "From Scratch Tests is_right_index - PURE - returns True if the index is the right index",
+    "FrScTe7": "From Scratch Tests round_all_nums_down - PURE - rounds all numbers down",
+    "FrScTe8": "From Scratch Tests get_all_y_coordinates - PURE - returns a list of all y coordinates",
+    "MoTe1": "Modify Tests uppercase_all - No matter how many words passed in, they are uppercased",
+    "MoTe2": "Modify Tests unpack_coordinates - Unpacks the coordinates list into x and y variables"
+  },
+  "testNameToIdHash": {
+    "Debug Tests clear_list - removes all elements from a list as a mutation": "DeTe1",
+    "Debug Tests get_first_item - returns the first item in a list WITHOUT mutating original": "DeTe2",
+    "From Scratch Tests add_to_front_or_back - MUTATION - adds value to the front or back": "FrScTe1",
+    "From Scratch Tests reverse_string - PURE - returns a reversed string": "FrScTe2",
+    "From Scratch Tests new_list_full_of - PURE - returns a list full of the given value": "FrScTe3",
+    "From Scratch Tests insert_into_middle - MUTATION - inserts value into the middle of a list": "FrScTe4",
+    "From Scratch Tests delete_from_middle - MUTATION - deletes value from the middle of a list": "FrScTe5",
+    "From Scratch Tests is_right_index - PURE - returns True if the index is the right index": "FrScTe6",
+    "From Scratch Tests round_all_nums_down - PURE - rounds all numbers down": "FrScTe7",
+    "From Scratch Tests get_all_y_coordinates - PURE - returns a list of all y coordinates": "FrScTe8",
+    "Modify Tests uppercase_all - No matter how many words passed in, they are uppercased": "MoTe1",
+    "Modify Tests unpack_coordinates - Unpacks the coordinates list into x and y variables": "MoTe2"
+  },
+  "humanReadable": {
+    "Debug Tests": "0/2",
+    "From Scratch Tests": "0/8",
+    "Modify Tests": "0/2",
+    "finalTestScore": "FINAL SCORE: 0/12"
+  }
+}
