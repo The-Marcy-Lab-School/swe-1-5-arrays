@@ -49,3 +49,12 @@ print(shallow)        # [[1, 2, 'oh dear'], [3, 4]]  -- same inner lists!
 
 # Why does `shallow` show the change when it is a copy?
 # That is the question to sit with.
+
+# ---------------------------------------------------------------------------
+# QUESTION 13 (Optional)
+#
+# Why did the copy change? Write your answer below, two or three sentences.
+#
+# YOUR ANSWER:
+#
+# ---------------------------------------------------------------------------

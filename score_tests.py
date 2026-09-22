@@ -38,7 +38,7 @@ stay put across runs.
 Renaming a test allocates it a NEW id, because the lookup is by name. Old
 entries are never deleted, so past scores stay interpretable; to keep a
 renamed test on its old id, point the new name at that id by hand in
-`testNameToIdHash`. This matches the JavaScript package's behaviour.
+`testNameToIdHash`. This matches the JavaScript package's behavior.
 
 Running a subset (`pytest tests/test_debug.py`) only updates that suite.
 Scores for suites that did not run are carried over untouched.

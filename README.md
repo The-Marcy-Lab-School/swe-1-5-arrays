@@ -1,21 +1,55 @@
 # Lists
 
-Practise Python lists, and learn when a function changes a list instead of
+Practice Python lists, and learn when a function changes a list instead of
 returning a new one.
 
-**Practising:** lists, mutation, pure functions
+**Practicing:** lists, mutation, pure functions
+
+- [AI Use on This Assignment](#ai-use-on-this-assignment)
+- [Setup](#setup)
+- [From Scratch](#from-scratch)
+  - [Question 1: `add_to_front_or_back`](#question-1-add_to_front_or_back--mutates)
+  - [Question 2: `reverse_string`](#question-2-reverse_string--pure)
+  - [Question 3: `new_list_full_of`](#question-3-new_list_full_of--pure)
+  - [Question 4: `insert_into_middle`](#question-4-insert_into_middle--mutates)
+  - [Question 5: `delete_from_middle`](#question-5-delete_from_middle--mutates)
+  - [Question 6: `is_right_index`](#question-6-is_right_index--pure)
+  - [Question 7: `round_all_nums_down`](#question-7-round_all_nums_down--pure)
+  - [Question 8: `get_all_y_coordinates`](#question-8-get_all_y_coordinates--pure)
+- [Modify](#modify)
+  - [Question 9: `uppercase_all`](#question-9-uppercase_all)
+  - [Question 10: `unpack_coordinates`](#question-10-unpack_coordinates)
+- [Debug](#debug)
+  - [Question 11: `clear_list`](#question-11-clear_list)
+  - [Question 12: `get_first_item`](#question-12-get_first_item)
+- [Bonus](#bonus-names-objects-and-copies)
+- [Submitting](#submitting)
 
 ## AI Use on This Assignment
 
-Use whichever mode matches where you are with this material. Both are allowed.
+Use whichever mode matches where you are with this material. Both are fine,
+and most people move between them as a concept clicks.
 
-**Tutor mode** — AI explains, questions, and critiques. You write every line
-you submit. For this assignment: ask it why changing a list inside a function
-can affect the caller. Do not ask it for the function.
+**Tutor mode.** The AI explains, questions, quizzes, and critiques, and you
+write every line you submit. For this assignment that means asking it why
+changing a list inside a function can affect the caller, or having it quiz you
+until you can predict what your own code will do. Ask it a hundred questions —
+that is the whole point. What you do not do is ask it for the function. Paste
+this at the start of a chat and it will hold for the rest of the conversation:
 
-**Implementer mode** — you write a spec first, AI writes code from it, you
-verify. For this assignment: your spec must say, for each function, whether it
-changes the list in place or returns a new one.
+> You are acting as a tutor. Your job is to explain what this coding question
+> is asking, clarify confusing wording, and highlight the relevant concepts I
+> need to know — but do not provide the full solution or code that directly
+> answers the question. Instead, rephrase the problem in simpler terms,
+> identify what is being tested, and suggest what steps or thought processes
+> might help. Ask me guiding questions to make sure I am thinking critically.
+> Do not write the final function, algorithm, or code implementation.
+
+**Implementer mode.** You write a specification first, the AI writes code from
+it, and then you verify that code line by line. For this assignment your spec
+has to say, for every function, whether it changes the list in place or
+returns a new one. If what comes back does more than you asked for, reject it
+— over-delivery is a defect, and catching it is part of the job.
 
 You own every line either way, and you will be asked to explain it.
 
@@ -33,7 +67,9 @@ pytest                     # run the tests
 pytest -k reverse_string   # run one test
 ```
 
-75% of tests passing counts as complete. Submit before it is perfect.
+75% of tests passing counts as complete. Submit at that point even if it is
+not perfect. Treat submitting as a checkpoint rather than a finish line, and
+come back to improve it.
 
 A **pure** function returns a new value and changes nothing else. A **side
 effect** changes something outside the function, such as a list you passed in.
@@ -62,7 +98,8 @@ Return `text` reversed. Strings are immutable, so the original cannot change.
 reverse_string("hello")   # "olleh"
 ```
 
-A slice can do this in one step.
+A slice can do this in one step. Look up what a slice's third number does —
+it is smaller than you think.
 
 ### Question 3: `new_list_full_of` — PURE
 
@@ -72,6 +109,9 @@ Return a new list holding `value`, repeated `count` times.
 new_list_full_of(5, 3)     # [5, 5, 5]
 new_list_full_of(0, 0)     # []
 ```
+
+This might be a stumper, but Python has an operator that does this in one
+character. You already use it for math. HmmmmMMMMmmm?
 
 ### Question 4: `insert_into_middle` — MUTATES
 
@@ -84,7 +124,7 @@ insert_into_middle(nums, 6)
 print(nums)   # [1, 2, 6, 3, 4, 5]
 ```
 
-Read the tests to see which index counts as the middle.
+Read the tests to see which index counts as the middle. Do not overthink it.
 
 ### Question 5: `delete_from_middle` — MUTATES
 
@@ -117,7 +157,8 @@ alone.
 round_all_nums_down([5.9, -7.9, 12.9])   # [5, -8, 12]
 ```
 
-Note `-7.9` rounds down to `-8`. Check what `int()` does to negatives first.
+Careful with that `-7.9`. Rounding down means going *down*, to `-8`. Try
+`int(-7.9)` in the playground first and see if it agrees with you.
 
 ### Question 8: `get_all_y_coordinates` — PURE
 
@@ -128,6 +169,9 @@ of only the `y` values, which are the second item in each one.
 get_all_y_coordinates([[1, 2], [3, 4], [5, 6]])      # [2, 4, 6]
 get_all_y_coordinates([[1, 2, 3], [4, 5, 6]])        # [2, 5]
 ```
+
+This is *technically* a matrix function. How about that? You've barely started
+Marcy and you're already parsing matrices.
 
 ## Modify
 
@@ -161,23 +205,43 @@ Both functions in `src/debug.py` are broken.
 
 ### Question 11: `clear_list`
 
-Should empty the given list in place. It does nothing. Work out what `lst = []`
-rebinds, then fix it.
+`clear_list` is supposed to empty the list it is given, but the list comes
+back with everything still in it. What does `lst = []` actually do to the name
+`lst` inside the function, and does the caller ever see it? Fix it so the
+caller's list really is emptied.
+
+```python
+nums = [1, 2, 3]
+clear_list(nums)
+print(nums)   # want [] but get [1, 2, 3]
+```
 
 ### Question 12: `get_first_item`
 
-Should return the first item and leave the list untouched. It removes the item
-instead. An empty list returns `None`.
+`get_first_item` returns the right item, but it steals it. The caller's list
+comes back one item shorter every time. Which method is doing the damage, and
+what could read the first item without removing it? Fix it so the list is left
+alone, and make an empty list return `None` instead of raising.
+
+```python
+nums = [1, 2, 3]
+get_first_item(nums)   # 1, correct
+print(nums)            # want [1, 2, 3] but get [2, 3]
+```
 
 ## Bonus: names, objects, and copies
 
-### Question 13: why does the copy change?
+### Question 13 (Optional): why does the copy change?
 
 Run `python3 ref_examples/reference_example.py` and read it beside the two
 diagrams there. Its last example copies a list, changes the original, and the
-copy changes too. Why?
+copy changes too.
 
-Nothing to submit.
+Write your answer as a comment at the bottom of `ref_examples/reference_example.py`.
+Two or three sentences is plenty.
+
+This one is worth sitting with. Once it clicks, a lot of confusing bugs stop
+being confusing.
 
 ## Submitting
 
