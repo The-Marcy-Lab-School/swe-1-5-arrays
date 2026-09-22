@@ -7,6 +7,7 @@ returning a new one.
 
 - [AI Use on This Assignment](#ai-use-on-this-assignment)
 - [Setup](#setup)
+- [Before You Start](#before-you-start)
 - [From Scratch](#from-scratch)
   - [Question 1: `add_to_front_or_back`](#question-1-add_to_front_or_back--mutates)
   - [Question 2: `reverse_string`](#question-2-reverse_string--pure)
@@ -71,9 +72,30 @@ pytest -k reverse_string   # run one test
 not perfect. Treat submitting as a checkpoint rather than a finish line, and
 come back to improve it.
 
-A **pure** function returns a new value and changes nothing else. A **side
-effect** changes something outside the function, such as a list you passed in.
-Only mutate when a question asks for it.
+## Before You Start
+
+Tonight is all about lists. We covered a lot in class, but you will still need
+the docs for a few list methods you have not met yet.
+
+In functional programming, a **pure** function is one that always gives the
+same output for the same input, and has no side effects. A **side effect** is
+something like changing a global variable or mutating an argument. Lists are
+the first type you have met that can be mutated, so this is the first time it
+matters. Only mutate when you mean to, and make a copy for everything else.
+
+One more idea worth having straight. A variable is a **name pointing at an
+object**, and assigning one name to another copies nothing:
+
+![Two boxes labeled nums and other, each with an arrow pointing to the same list containing 1, 2, 3, 4](./ref_examples/two-names-one-list.png)
+
+Both names point at one list, so `other.append(4)` changes what `nums` sees
+too. That is the idea behind questions 11 and 12, where a function either
+changes the caller's list or quietly fails to:
+
+![Two panels. On the left, lst = [] points the local name at a new empty list while nums still points at the original. On the right, lst.clear() empties the one list both names share](./ref_examples/rebinding-vs-mutating.png)
+
+Run `python3 ref_examples/reference_example.py` to poke at both yourself. The
+bonus question comes back to this.
 
 ## From Scratch
 
