@@ -65,8 +65,6 @@ pip install -r requirements.txt
 git checkout -b draft
 ```
 
-On Windows, activate with `.venv\Scripts\activate`.
-
 Run `pytest` for everything, or `pytest -k reverse_string` for one question.
 Scores land in `scores/scores.json`.
 
