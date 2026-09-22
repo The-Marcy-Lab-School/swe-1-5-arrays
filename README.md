@@ -60,13 +60,15 @@ Work in `development/mod-1`. Make a draft branch before you start.
 
 ```sh
 python3 -m venv .venv
-source .venv/bin/activate      # Windows: .venv\Scripts\activate
+source .venv/bin/activate
 pip install -r requirements.txt
 git checkout -b draft
-
-pytest                     # run the tests
-pytest -k reverse_string   # run one test
 ```
+
+On Windows, activate with `.venv\Scripts\activate`.
+
+Run `pytest` for everything, or `pytest -k reverse_string` for one question.
+Scores land in `scores/scores.json`.
 
 75% of tests passing counts as complete. Submit at that point even if it is
 not perfect. Treat submitting as a checkpoint rather than a finish line, and
@@ -89,8 +91,7 @@ object**, and assigning one name to another copies nothing:
 ![Two boxes labeled nums and other, each with an arrow pointing to the same list containing 1, 2, 3, 4](./ref_examples/two-names-one-list.png)
 
 Both names point at one list, so `other.append(4)` changes what `nums` sees
-too. That is the idea behind questions 11 and 12, where a function either
-changes the caller's list or quietly fails to:
+too. That is the idea behind questions 11 and 12:
 
 ![Two panels. On the left, lst = [] points the local name at a new empty list while nums still points at the original. On the right, lst.clear() empties the one list both names share](./ref_examples/rebinding-vs-mutating.png)
 
@@ -120,8 +121,7 @@ Return `text` reversed. Strings are immutable, so the original cannot change.
 reverse_string("hello")   # "olleh"
 ```
 
-A slice can do this in one step. Look up what a slice's third number does —
-it is smaller than you think.
+A slice can do this in one step. Look up what its third number does.
 
 ### Question 3: `new_list_full_of` — PURE
 
@@ -146,7 +146,7 @@ insert_into_middle(nums, 6)
 print(nums)   # [1, 2, 6, 3, 4, 5]
 ```
 
-Read the tests to see which index counts as the middle. Do not overthink it.
+Check the tests for which index counts as the middle.
 
 ### Question 5: `delete_from_middle` — MUTATES
 
@@ -180,7 +180,7 @@ round_all_nums_down([5.9, -7.9, 12.9])   # [5, -8, 12]
 ```
 
 Careful with that `-7.9`. Rounding down means going *down*, to `-8`. Try
-`int(-7.9)` in the playground first and see if it agrees with you.
+`int(-7.9)` and see if it agrees with you.
 
 ### Question 8: `get_all_y_coordinates` — PURE
 
