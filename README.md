@@ -25,6 +25,7 @@ returning a new one.
   - [Question 12: `get_first_item`](#question-12-get_first_item)
 - [Bonus](#bonus-names-objects-and-copies)
 - [Submitting](#submitting)
+- [Good luck!](#good-luck)
 
 ## AI Use on This Assignment
 
@@ -74,14 +75,14 @@ come back to improve it.
 
 ## Before You Start
 
-Tonight is all about lists. We covered a lot in class, but you will still need
-the docs for a few list methods you have not met yet.
+Tonight is all about lists. We covered a lot in class, but you will still
+need the docs for a few list methods.
 
-In functional programming, a **pure** function is one that always gives the
-same output for the same input, and has no side effects. A **side effect** is
-something like changing a global variable or mutating an argument. Lists are
-the first type you have met that can be mutated, so this is the first time it
-matters. Only mutate when you mean to, and make a copy for everything else.
+In functional programming, a **pure** function always gives the same output
+for the same input and has no side effects. A **side effect** is something
+like changing a global variable or mutating an argument. Lists are the first
+type you have met that can be mutated. Only mutate when you mean to, and make
+a copy for everything else.
 
 One more idea worth having straight. A variable is a **name pointing at an
 object**, and assigning one name to another copies nothing:
@@ -89,12 +90,11 @@ object**, and assigning one name to another copies nothing:
 ![Two boxes labeled nums and other, each with an arrow pointing to the same list containing 1, 2, 3, 4](./ref_examples/two-names-one-list.png)
 
 Both names point at one list, so `other.append(4)` changes what `nums` sees
-too. That is the idea behind questions 11 and 12:
+too. That idea is behind questions 11 and 12:
 
 ![Two panels. On the left, lst = [] points the local name at a new empty list while nums still points at the original. On the right, lst.clear() empties the one list both names share](./ref_examples/rebinding-vs-mutating.png)
 
-Run `python3 ref_examples/reference_example.py` to poke at both yourself. The
-bonus question comes back to this.
+Run `python3 ref_examples/reference_example.py` to poke at both yourself.
 
 ## From Scratch
 
@@ -102,8 +102,10 @@ Write your solutions in `src/from_scratch.py`.
 
 ### Question 1: `add_to_front_or_back` — MUTATES
 
-Insert `value` into `lst`, at the front if `is_front` is `True`, otherwise at
-the back. Change the list in place and return nothing.
+Write a function `add_to_front_or_back` that takes three arguments: a list
+`lst`, a `value` of any type, and a boolean `is_front`. It inserts the value
+at the front or the back depending on the boolean. It should change the list
+in place and return nothing.
 
 ```python
 nums = [1, 2, 3]
@@ -113,30 +115,40 @@ print(nums)   # [0, 1, 2, 3]
 
 ### Question 2: `reverse_string` — PURE
 
-Return `text` reversed. Strings are immutable, so the original cannot change.
+Write a function `reverse_string` that takes a `text` argument and returns a
+reversed version of it. Will this change the original string in any way? Food
+for thought.
 
 ```python
 reverse_string("hello")   # "olleh"
 ```
 
-A slice can do this in one step. Look up what its third number does.
+Before you go crazy with loops, check out
+[slicing](https://www.w3schools.com/python/python_strings_slicing.asp) — its
+third number can do this in one step. Now, if you want to do it *manually*
+with a loop, go crazy! It's fun, but know there's a common way to do this.
 
 ### Question 3: `new_list_full_of` — PURE
 
-Return a new list holding `value`, repeated `count` times.
+Write a function `new_list_full_of` that takes a `value` of any type and a
+number `count`, and returns a new list full of that value.
 
 ```python
 new_list_full_of(5, 3)     # [5, 5, 5]
 new_list_full_of(0, 0)     # []
 ```
 
-This might be a stumper, but Python has an operator that does this in one
-character. You already use it for math. HmmmmMMMMmmm?
+This might be a stumper, but try experimenting with an
+[operator](https://www.w3schools.com/python/python_operators.asp) you already
+use for math — it does something surprising to a list. HmmmmMMMMmmm?
+
+This is a cool trick to know, I can't wait till you learn it too!
 
 ### Question 4: `insert_into_middle` — MUTATES
 
-Insert `value` at the middle index of `lst`. Change the list in place and
-return nothing. An empty list is still a valid input.
+Write a function `insert_into_middle` that takes a list `lst` and a `value`.
+It finds the middle index and inserts the value there, changing the list in
+place and returning nothing. An empty list is still valid input.
 
 ```python
 nums = [1, 2, 3, 4, 5]
@@ -148,8 +160,9 @@ Check the tests for which index counts as the middle.
 
 ### Question 5: `delete_from_middle` — MUTATES
 
-Remove whatever sits at the middle index of `lst`. Change the list in place
-and return nothing. An empty list must not raise an error.
+Write a function `delete_from_middle` that takes a list `lst` and removes
+whatever sits at its middle index. It changes the list in place and returns
+nothing. An empty list must not raise an error.
 
 ```python
 nums = [1, 2, 3, 4, 5]
@@ -159,8 +172,9 @@ print(nums)   # [1, 2, 4, 5]
 
 ### Question 6: `is_right_index` — PURE
 
-Return `True` if `value` sits at `index` in `lst`, and `False` otherwise.
-A value that is not in the list returns `False`.
+Write a function `is_right_index` that takes a list `lst`, a `value`, and a
+number `index`. It returns `True` if the value sits at that index, `False`
+otherwise. That includes `False` for values not in the list at all.
 
 ```python
 letters = ["a", "b", "c"]
@@ -170,25 +184,30 @@ is_right_index(letters, "WOW", 1)   # False
 
 ### Question 7: `round_all_nums_down` — PURE
 
-Return a new list with every number in `nums` rounded down. Leave `nums`
-alone.
+Write a function `round_all_nums_down` that takes a list of numbers and
+returns a *new* list with each one rounded down. The original list should not
+be modified in any way.
 
 ```python
 round_all_nums_down([5.9, -7.9, 12.9])   # [5, -8, 12]
 ```
 
 Careful with that `-7.9`. Rounding down means going *down*, to `-8`. Try
-`int(-7.9)` and see if it agrees with you.
+`int(-7.9)` and see if it agrees.
 
 ### Question 8: `get_all_y_coordinates` — PURE
 
-Each item in `coords` is a coordinate list such as `[x, y]`. Return a new list
-of only the `y` values, which are the second item in each one.
+Write a function `get_all_y_coordinates` that takes a list of coordinate
+lists such as `[x, y]`. It should return a *new* list of only the `y` values,
+which are the second item in each one.
 
 ```python
 get_all_y_coordinates([[1, 2], [3, 4], [5, 6]])      # [2, 4, 6]
 get_all_y_coordinates([[1, 2, 3], [4, 5, 6]])        # [2, 5]
 ```
+
+A [list comprehension](https://www.w3schools.com/python/python_lists_comprehension.asp)
+makes this a one-liner once you see it.
 
 This is *technically* a matrix function. How about that? You've barely started
 Marcy and you're already parsing matrices.
@@ -199,8 +218,11 @@ Change the two functions already in `src/modify.py`.
 
 ### Question 9: `uppercase_all`
 
-This only handles exactly three words. Make it take any number of words,
-including none. Look up `*args`.
+Modify `uppercase_all` so it handles any number of words, including none. It
+currently insists on exactly three.
+
+Read up on [`*args`](https://www.w3schools.com/python/gloss_python_function_arbitrary_arguments.asp),
+which lets a function accept as many arguments as it is given.
 
 ```python
 uppercase_all("hello", "world")   # ["HELLO", "WORLD"]
@@ -211,9 +233,13 @@ We never pass a list, only separate word arguments.
 
 ### Question 10: `unpack_coordinates`
 
-This pulls `x` and `y` out by index. Rewrite it to unpack both in one
-statement, keeping the names `x` and `y`. The tests read the source and check
-the f-string is untouched.
+Rewrite `unpack_coordinates` to use **tuple unpacking** instead of pulling
+values out by index.
+
+**Unpacking** assigns several names at once from one sequence, so
+`x, y = [1, 2]` gives you both in a single line. Keep the names `x` and `y` —
+the tests are explicitly looking for those, and I want you to get the points.
+They also check the f-string is untouched.
 
 ```python
 unpack_coordinates([1, 2])   # "X is: 1, Y is: 2"
@@ -272,3 +298,8 @@ git push
 ```
 
 Open a pull request to your instructor for feedback.
+
+## Good luck!
+
+Mutation trips up almost everyone the first time. Once it clicks, a whole
+category of confusing bugs stops being confusing. You got this!
