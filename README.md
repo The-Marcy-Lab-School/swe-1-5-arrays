@@ -218,8 +218,11 @@ Change the two functions already in `src/modify.py`.
 
 ### Question 9: `uppercase_all`
 
-Modify `uppercase_all` so it handles any number of words, including none. It
-currently insists on exactly three.
+Modify `uppercase_all` so it takes any number of word arguments, including
+none, and returns a list of them uppercased. It currently insists on exactly
+three.
+
+We will never pass in a list as an argument, only individual word arguments.
 
 Read up on [`*args`](https://www.w3schools.com/python/gloss_python_function_arbitrary_arguments.asp),
 which lets a function accept as many arguments as it is given.
@@ -264,10 +267,16 @@ print(nums)   # want [] but get [1, 2, 3]
 
 ### Question 12: `get_first_item`
 
-`get_first_item` returns the right item, but it steals it. The caller's list
-comes back one item shorter every time. Which method is doing the damage, and
-what could read the first item without removing it? Fix it so the list is left
-alone, and make an empty list return `None` instead of raising.
+`get_first_item` in `src/debug.py` is *not* supposed to change the list it is
+given. We just want the first item. But right now the caller's list comes back
+one item shorter every single time.
+
+Which method is doing the damage, and what could read the first item without
+removing it? Fix it so that:
+
+- the first item is returned
+- the caller's list is left exactly as it was
+- an empty list returns `None` rather than raising an error
 
 ```python
 nums = [1, 2, 3]
